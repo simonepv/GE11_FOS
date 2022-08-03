@@ -40,7 +40,7 @@ def main():
         tg1.GetXaxis().SetTimeDisplay(1);
         tg1.GetXaxis().SetTimeFormat("%Y-%m-%d %H:%M");
         tg1.GetXaxis().SetTimeOffset(0,"gmt");
-        tg1.GetXaxis().SetTitle("Date (YYYY-MM-DD HH24:MM:SS)")
+        tg1.GetXaxis().SetTitle("Date UTC (YYYY-MM-DD HH24:MM:SS)")
         tg1.GetYaxis().SetTitle("Not calibrated FOS temperature (Celsius degrees)")
         tg1.Write()
     outFileHandle.Close()
