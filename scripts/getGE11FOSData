@@ -1,0 +1,96 @@
+#!/bin/bash
+
+SIDSensor=(
+             'tempGE11_P01_L1' 
+             'tempGE11_P05_L1' 
+             #'tempGE11_P07_L1' 
+             #'tempGE11_P09_L1' 
+             #'tempGE11_P11_L1' 
+             #'tempGE11_P13_L1' 
+             #'tempGE11_P15_L1' 
+             #'tempGE11_P17_L1' 
+             #'tempGE11_P19_L1' 
+             #'tempGE11_P21_L1' 
+             #'tempGE11_P23_L1' 
+             #'tempGE11_P25_L1' 
+             #'tempGE11_P27_L1' 
+             #'tempGE11_P29_L1' 
+             #'tempGE11_P31_L1' 
+             #'tempGE11_P33_L1' 
+             #'tempGE11_P35_L1' 
+             #'tempGE11_P01_L2' 
+             #'tempGE11_P03_L2' 
+             #'tempGE11_P05_L2' 
+             #'tempGE11_P07_L2' 
+             #'tempGE11_P09_L2' 
+             #'tempGE11_P11_L2' 
+             #'tempGE11_P13_L2' 
+             #'tempGE11_P15_L2' 
+             #'tempGE11_P17_L2' 
+             #'tempGE11_P19_L2' 
+             #'tempGE11_P21_L2' 
+             #'tempGE11_P23_L2' 
+             #'tempGE11_P25_L2' 
+             #'tempGE11_P27_L2' 
+             #'tempGE11_P29_L2' 
+             #'tempGE11_P31_L2' 
+             #'tempGE11_P33_L2' 
+             #'tempGE11_P35_L2' 
+             #'tempGE11_M01_L1' 
+             #'tempGE11_M03_L1' 
+             #'tempGE11_M05_L1' 
+             #'tempGE11_M07_L1' 
+             #'tempGE11_M09_L1' 
+             #'tempGE11_M11_L1' 
+             #'tempGE11_M13_L1' 
+             #'tempGE11_M15_L1' 
+             #'tempGE11_M17_L1' 
+             #'tempGE11_M19_L1' 
+             #'tempGE11_M21_L1' 
+             #'tempGE11_M23_L1' 
+             #'tempGE11_M25_L1' 
+             #'tempGE11_M27_L1' 
+             #'tempGE11_M29_L1' 
+             #'tempGE11_M31_L1' 
+             #'tempGE11_M33_L1' 
+             #'tempGE11_M35_L1' 
+             #'tempGE11_M01_L2' 
+             #'tempGE11_M03_L2' 
+             #'tempGE11_M05_L2' 
+             #'tempGE11_M07_L2' 
+             #'tempGE11_M09_L2' 
+             #'tempGE11_M11_L2' 
+             #'tempGE11_M13_L2' 
+             #'tempGE11_M15_L2' 
+             #'tempGE11_M17_L2' 
+             #'tempGE11_M19_L2' 
+             #'tempGE11_M21_L2' 
+             #'tempGE11_M25_L2' 
+             #'tempGE11_M27_L2' 
+             #'tempGE11_M29_L2' 
+             #'tempGE11_M31_L2' 
+             #'tempGE11_M33_L2' 
+             #'tempGE11_M35_L2'
+
+)
+
+StartTime='2022-08-01 00:00:01'
+EndTime='2022-08-02 23:59:59'
+
+########### DO NOT EDIT BELOW THIS LINE!!!!!!!!
+
+mkdir 'Output'
+
+SDT=`date -d "$StartTime" +%s`
+EDT=`date -d "$EndTime" +%s`
+echo $SDT"---"$EDT
+
+
+for ((idx=0; idx<${#SIDSensor[@]}; ++idx)); do
+    python OMDSselectnonFOSSensorFinalCorrectedValue.pyc ${SIDSensor[idx]}  $SDT $EDT > 'Output/'${SIDSensor[idx]}_$SDT-$EDT.txt
+done
+
+
+
+
+
