@@ -2,6 +2,7 @@
 
 SIDSensor=(
              'tempGE11_P01_L1' 
+             'tempGE11_P03_L1' 
              'tempGE11_P05_L1' 
              #'tempGE11_P07_L1' 
              #'tempGE11_P09_L1' 
@@ -87,7 +88,7 @@ echo $SDT"---"$EDT
 
 
 for ((idx=0; idx<${#SIDSensor[@]}; ++idx)); do
-    python OMDSselectnonFOSSensorFinalCorrectedValue.pyc ${SIDSensor[idx]}  $SDT $EDT > 'Output/'${SIDSensor[idx]}_$SDT-$EDT.txt
+    python 'scripts/'OMDSselectnonFOSSensorFinalCorrectedValue.pyc ${SIDSensor[idx]}  $SDT $EDT > 'Output/'${SIDSensor[idx]}_$SDT-$EDT.txt
 done
 
 
